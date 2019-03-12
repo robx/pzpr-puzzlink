@@ -286,10 +286,6 @@ ui.menuarea = {
 		ui.displayAll();
 	},
 	repaint : function(){ ui.puzzle.redraw(true);},
-	jumpexp : function(){
-		ui.menuconfig.save();	/* faq.htmlで言語設定を使用するので、一旦Config値を保存 */
-		window.open('./faq.html?'+ui.puzzle.pid+(!ui.puzzle.playeronly?"_edit":""), '');
-	},
 	disppopup : function(e){
 		var el = e.target;
 		if(el.nodeName==="SPAN"){ el = el.parentNode;}
