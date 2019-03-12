@@ -11,8 +11,9 @@ There are two reasons for the fork:
 
 1. to implement bug fixes, minor improvements, new puzzle types towards
    pzprv3 and [pzprjs](https://github.com/sabo2/pzprjs). The intent
-   is to collect these in the github fork
-   [robx/pzprv3](https://github.com/robx/pzprv3).
+   is to collect these in the github forks
+   [robx/pzprv3](https://github.com/robx/pzprv3) and
+   [robx/pzprjs](https://github.com/robx/pzprjs).
 2. to implement some larger architectural changes specific to
    [puzz.link](https://puzz.link), such as preview images for social
    sharing, recording of solving times, etc.
