@@ -121,7 +121,7 @@ v3index.extend({
 		var listparent;
 		function addPuzzle(pid){
 			var el = _doc.createElement('li');
-			el.innerHTML = '<a href="p.html?'+pid+'"></a>';
+			el.innerHTML = '<a href="p?'+pid+'"></a>';
 			listparent.appendChild(el);
 			var pinfo = pzpr.variety(pid);
 			self.captions.push({anode:el.firstChild, str_jp:pinfo.ja, str_en:pinfo.en});
@@ -155,7 +155,7 @@ v3index.extend({
 			if(!pinfo.valid){ return;}
 			if(el.childNodes.length===0){
 				el.className = (self.variety[pid] ? self.variety[pid].state : 'omopa');
-				el.innerHTML = '<a href="p.html?'+pid+(!self.testdoc?'':'_test')+'"></a>';
+				el.innerHTML = '<a href="p?'+pid+(!self.testdoc?'':'_test')+'"></a>';
 			}
 			self.captions.push({anode:el.firstChild, str_jp:pinfo.ja, str_en:pinfo.en});
 		});
@@ -215,7 +215,7 @@ v3index.urlif.extend({
 		var url = getEL("urlinput_text").value;
 		if(!!url){
 			localStorage['pzprv3_urldata'] = url;
-			window.open('./p.html', '');
+			window.open('./p', '');
 		}
 	}
 });
@@ -274,7 +274,7 @@ v3index.fileif.extend({
 			}
 
 			localStorage['pzprv3_filedata'] = fstr;
-			window.open('./p.html', '');
+			window.open('./p', '');
 		}
 	}
 });
@@ -396,7 +396,7 @@ v3index.dbif.extend({
 			var str = DBlist[selected].pdata;
 			if(!!str){
 				localStorage['pzprv3_filedata'] = str;
-				window.open('./p.html', '');
+				window.open('./p', '');
 			}
 		}
 	},

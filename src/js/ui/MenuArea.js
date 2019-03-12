@@ -320,7 +320,7 @@ ui.menuarea = {
 	duplicate_board : function(){
 		if(getEL("menu_duplicate").className==="disabled"){ return;}
 		var filestr = ui.puzzle.getFileData(pzpr.parser.FILE_PZPR, {history:true});
-		var url = './p.html?'+ui.puzzle.pid+(ui.puzzle.playeronly?"_play":"");
+		var url = './p?'+ui.puzzle.pid+(ui.puzzle.playeronly?"_play":"");
 		if(!pzpr.env.browser.Presto){
 			var old = sessionStorage['filedata'];
 			sessionStorage['filedata'] = filestr;
