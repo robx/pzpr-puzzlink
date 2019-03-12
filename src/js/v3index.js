@@ -439,13 +439,15 @@ var pstate = {
 			'kakuru','view','bosanowa','nanro','cojun','renban','sukororoom','hanare','kazunori',
 			'wagiri','shugaku','hakoiri','roma','toichika','cbblock','nondango','onsen'],
 	orig  :['mochinyoro','ayeheya','aho'],
-	genre :['tapa','arukone','yinyang','building','kropki','starbattle','easyasabc','walllogic']
+	genre :['tapa','arukone','yinyang','building','kropki','starbattle','easyasabc','walllogic'],
+	add   :['angleloop', 'heyawacky', 'nurimisaki']
 };
 var tabstate = {
 	lunch:'lunch', lunch2:'lunch', lunch3:'nigun',
 	testa:'nigun', nigun:'nigun',
 	trial:'omopa', omopa:'omopa',
-	orig :'extra', genre:'extra'
+	orig :'extra', genre:'extra',
+	add  :'add'
 };
 
 var genres = {};
