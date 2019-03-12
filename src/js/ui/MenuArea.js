@@ -344,6 +344,9 @@ ui.menuarea = {
 		var check = ui.puzzle.check(true);
 		if(check.complete){
 			ui.timer.stop();
+			if(ui.callbackComplete){
+				ui.callbackComplete(ui.puzzle, check);
+			}
 		}
 		var str = "", texts = check.text.split(/\n/);
 		for(var i=0;i<texts.length;i++){ str += "<div style=\"margin-bottom:6pt;\">"+texts[i]+"</div>";}

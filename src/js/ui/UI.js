@@ -40,6 +40,8 @@ window.ui = {
 	
 	enableSaveBlob  : false,	// saveBlobが使用できるか
 
+	callbackComplete : null,
+
 	//---------------------------------------------------------------------------
 	// ui.displayAll()     全てのメニュー、ボタン、ラベルに対して文字列を設定する
 	// ui.setdisplay()     個別のメニュー、ボタン、ラベルに対して文字列を設定する
