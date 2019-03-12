@@ -2,7 +2,7 @@
   "name": "pzpr-puzzlink",
   "version": "0.0.1",
   "description": "Playing and editing puzzles by Javascript",
-  "main": "index.html",
+  "main": "list.html",
   "directories": {
     "test": "tests"
   },
