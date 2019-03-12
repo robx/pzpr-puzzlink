@@ -1,6 +1,6 @@
 {
-  "name": "pzprv3",
-  "version": "3.6.9",
+  "name": "pzpr-puzzlink",
+  "version": "0.0.1",
   "description": "Playing and editing puzzles by Javascript",
   "main": "index.html",
   "directories": {
@@ -12,11 +12,11 @@
     "HTML5",
     "WebApp"
   ],
-  "author": "sabo2",
+  "author": "robx",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sabo2/pzprv3"
+    "url": "https://github.com/robx/pzpr-puzzlink"
   },
   "scripts": {
     "build": "grunt default",
