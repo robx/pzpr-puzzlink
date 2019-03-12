@@ -39,7 +39,6 @@ window.ui = {
 	enableImageType : {},		// 保存可能な画像形式
 	
 	enableSaveBlob  : false,	// saveBlobが使用できるか
-	fileio : 'fileio.cgi',		// fileio.cgiのファイル名
 
 	//---------------------------------------------------------------------------
 	// ui.displayAll()     全てのメニュー、ボタン、ラベルに対して文字列を設定する
@@ -207,6 +206,5 @@ window.ui = {
 		}
 		
 		this.enableSaveBlob = (!!window.navigator.saveBlob);
-		this.fileio = (_doc.domain==='indi.s58.xrea.com'?"fileio.xcg":"fileio.cgi");
 	}
 };

@@ -392,8 +392,6 @@ ui.popupmgr.addpopup('fileopen',
 	
 	init : function(){
 		ui.popupmgr.popups.template.init.call(this);
-		
-		this.form.action = ui.fileio;
 	},
 	
 	//------------------------------------------------------------------------------
@@ -407,11 +405,6 @@ ui.popupmgr.addpopup('fileopen',
 			
 			if(!!ui.reader){ ui.reader.readAsText(fitem);}
 			else           { ui.puzzle.open(fitem.getAsText(''));}
-		}
-		else{
-			if(!fileEL.value){ return;}
-			this.form.action = ui.fileio;
-			this.form.submit();
 		}
 		this.form.reset();
 		this.close();
@@ -429,8 +422,6 @@ ui.popupmgr.addpopup('filesave',
 		ui.popupmgr.popups.template.init.call(this);
 		
 		this.anchor = ((!ui.enableSaveBlob && pzpr.env.API.anchor_download) ? getEL("saveanchor") : null);
-		
-		this.form.action = ui.fileio;
 	},
 	reset : function(){
 		/* ファイル形式選択オプション */
@@ -530,8 +521,6 @@ ui.popupmgr.addpopup('imagesave',
 		
 		this.anchor = ((!ui.enableSaveBlob && pzpr.env.API.anchor_download) ? getEL("saveanchor") : null);
 		this.showsize = getEL("showsize");
-		
-		this.form.action = ui.fileio;
 		
 		/* ファイル形式選択オプション */
 		var filetype = this.form.filetype, options = filetype.options;

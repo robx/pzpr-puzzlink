@@ -538,7 +538,7 @@
 
   <div class="popup">
     <div class="titlebar">__ファイルを開く__Open File__</div>
-    <form name="fileform" action="fileio.cgi" method="post" enctype="multipart/form-data" target="fileiopanel">
+    <form name="fileform" target="fileiopanel">
       <input type="hidden" name="operation" value="open">
       <input type="hidden" name="pencilbox" value="0">
       <span>__ファイル選択__Choose file__</span>
@@ -551,7 +551,7 @@
 
   <div class="popup">
     <div class="titlebar">__ファイルを保存する__Save File__</div>
-    <form name="filesave" action="fileio.cgi" method="post" target="fileiopanel">
+    <form name="filesave" target="fileiopanel">
       <input type="hidden" name="operation" value="save">
       <input type="hidden" name="ques" value="">
       <input type="hidden" name="urlstr" value="">
@@ -607,7 +607,7 @@
 
   <div class="popup">
     <div class="titlebar">__画像を保存する__Save Image__</div>
-    <form name="imagesave" action="fileio.cgi" method="post" target="fileiopanel">
+    <form name="imagesave" target="fileiopanel">
       <input type="hidden" name="operation" value="imagesave">
       <input type="hidden" name="urlstr" value="">
       <span>__ファイル形式__File format__</span>
