@@ -440,7 +440,7 @@ var pstate = {
 			'wagiri','shugaku','hakoiri','roma','toichika','cbblock','nondango','onsen'],
 	orig  :['mochinyoro','ayeheya','aho'],
 	genre :['tapa','arukone','yinyang','building','kropki','starbattle','easyasabc','walllogic'],
-	add   :['angleloop', 'heyawacky', 'nurimisaki']
+	add   :['angleloop', 'doubleback', 'heyawacky', 'nurimisaki']
 };
 var tabstate = {
 	lunch:'lunch', lunch2:'lunch', lunch3:'nigun',
