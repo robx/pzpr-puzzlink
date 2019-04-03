@@ -67,6 +67,7 @@ ui.keypopup =
 		bonsan     : [10,0],
 		heyabon    : [10,0],
 		rectslider : [10,0],
+		satogaeri  : [10,0],
 		yosenabe   : [10,0],
 		herugolf   : [10,0],
 		firefly    : [10,0],
@@ -234,7 +235,7 @@ ui.keypopup =
 		else if(pid==='rectslider'){
 			cap = '■';
 		}
-		else if(pid==='kurotto'||pid==='bonsan'||pid==='heyabon'||pid==='yosenabe'||pid==='herugolf'||pid==='kazunori'){
+		else if(pid==='kurotto'||pid==='bonsan'||pid==='satogaeri'||pid==='heyabon'||pid==='yosenabe'||pid==='herugolf'||pid==='kazunori'){
 			cap = '○';
 		}
 		if(cap!==null){ itemlist.push(['-',cap]);}
