@@ -356,11 +356,17 @@ ui.popupmgr.addpopup('urloutput',
 	
 	reset : function(px,py){
 		var form = this.form, pid = ui.puzzle.pid, exists = pzpr.variety(pid).exists;
+		form.ta.value = '';
 		// form.pzprapp.style.display = form.pzprapp.nextSibling.style.display = (exists.pzprapp ? "" : "none");
 		form.kanpen.style.display  = form.kanpen.nextSibling.style.display  = (exists.kanpen ? "" : "none");
 		form.heyaapp.style.display = form.heyaapp.nextSibling.style.display = ((pid==="heyawake") ? "" : "none");
 	},
 	
+	show : function(px,py){
+		ui.popupmgr.popups.template.show.call(this,px,py);
+		this.reset(px,py);
+	},
+
 	//------------------------------------------------------------------------------
 	// urloutput() URLを出力する
 	// openurl()   「このURLを開く」を実行する
