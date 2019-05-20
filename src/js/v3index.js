@@ -120,10 +120,11 @@ v3index.extend({
 	setRecentPuzzle : function(){
 		var listparent;
 		function addPuzzle(pid){
+			var pinfo = pzpr.variety(pid);
+			if(!pinfo.valid){ return;}
 			var el = _doc.createElement('li');
 			el.innerHTML = '<a href="p?'+pid+'"></a>';
 			listparent.appendChild(el);
-			var pinfo = pzpr.variety(pid);
 			self.captions.push({anode:el.firstChild, str_jp:pinfo.ja, str_en:pinfo.en});
 		}
 
