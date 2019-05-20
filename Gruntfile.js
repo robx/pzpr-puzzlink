@@ -23,6 +23,7 @@ module.exports = function(grunt){
       pzpr: {
         files : [
           { expand: true, cwd: 'node_modules/pzpr/dist/pzpr-variety', src: ['*.js'], dest: 'dist/js/pzpr-variety' },
+          { expand: true, cwd: 'node_modules/pzpr/dist/pzpr-samples', src: ['*.js'], dest: 'dist/js/pzpr-samples' },
           { src: 'node_modules/pzpr/dist/pzpr.js', dest: 'dist/js/pzpr.js' }
         ]
       },

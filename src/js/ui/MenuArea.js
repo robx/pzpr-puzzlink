@@ -94,6 +94,10 @@ ui.menuarea = {
 						addmenuevent(el, "mousedown", function(e){ menuarea.showHovering(e,el); e.preventDefault(); e.stopPropagation();});
 					}
 				}
+				var link = ui.customAttr(el,"pidlink");
+				if(!!link){
+					el.firstChild.setAttribute("href", link+ui.puzzle.pid);
+				}
 			}
 			else if(el.nodeType===1 && el.nodeName==="MENU"){
 				var label = el.getAttribute("label");
