@@ -37,8 +37,5 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-newer": "^1.2.0"
-  },
-  "dependencies": {
-    "pzpr": "file:../pzprjs"
   }
 }

@@ -3,8 +3,6 @@ module.exports = function(grunt){
   var pkg = grunt.file.readJSON('package.json'), deps = pkg.devDependencies;
   for(var plugin in deps){ if(plugin.match(/^grunt\-/)){ grunt.loadNpmTasks(plugin);}}
   
-  var pzprversion = require('./node_modules/pzpr/package.json').version;
-  
   var fs = require('fs');
   var banner_min  = fs.readFileSync('./src/js/common/banner_min.js',  'utf-8');
   var banner_full = fs.readFileSync('./src/js/common/banner_full.js', 'utf-8');
@@ -13,20 +11,10 @@ module.exports = function(grunt){
 
   grunt.initConfig({
     pkg: pkg,
-    pzpr: {
-      version: pzprversion
-    },
 
     clean: ['dist/*', 'pzprv3-*.{zip,tar.gz,tar.bz2}'],
 
     copy: {
-      pzpr: {
-        files : [
-          { expand: true, cwd: 'node_modules/pzpr/dist/pzpr-variety', src: ['*.js'], dest: 'dist/js/pzpr-variety' },
-          { expand: true, cwd: 'node_modules/pzpr/dist/pzpr-samples', src: ['*.js'], dest: 'dist/js/pzpr-samples' },
-          { src: 'node_modules/pzpr/dist/pzpr.js', dest: 'dist/js/pzpr.js' }
-        ]
-      },
       ui: {
         options: {
           process: function(content, srcpath){ return grunt.template.process(content);},
@@ -97,5 +85,5 @@ module.exports = function(grunt){
   grunt.registerTask('lint', ['newer:jshint:all']);
   grunt.registerTask('default', ['lint:source',          'build']);
   grunt.registerTask('release', ['lint:source', 'clean', 'build']);
-  grunt.registerTask('build',   ['newer:copy:ui', 'newer:copy:pzpr', 'newer:concat:ui', 'newer:uglify:ui']);
+  grunt.registerTask('build',   ['newer:copy:ui', 'newer:concat:ui', 'newer:uglify:ui']);
 };
