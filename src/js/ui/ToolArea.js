@@ -123,6 +123,7 @@ ui.toolarea = {
 		}
 		else if(idname==="trialmode"){
 			var trialstage = ui.puzzle.board.trialstage;
+			getEL('btnclear').style.display     = ((trialstage>0) ? 'none' : '');
 			getEL('btntrial').style.color       = ((trialstage>0) ? 'silver' : '');
 			getEL('btntrialarea').style.display = ((trialstage>0) ? 'block' : 'none');
 			
