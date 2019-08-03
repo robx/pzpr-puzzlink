@@ -168,7 +168,6 @@ ui.menuarea = {
 		var EDITOR = !ui.puzzle.playeronly;
 		getEL("menu_newboard").style.display  = (EDITOR ? "" : "none");
 		getEL("menu_urloutput").style.display = (EDITOR ? "" : "none");
-		getEL("menu_metadata").style.display  = (EDITOR ? "" : "none");
 		getEL("menu_adjust").style.display    = (EDITOR ? "" : "none");
 		getEL("menu_turnflip").style.display  = (EDITOR ? "" : "none");
 		getEL("menu_sep_edit1").style.display = (EDITOR ? "" : "none");

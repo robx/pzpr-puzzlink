@@ -27,8 +27,6 @@
      <li data-popup="database" id="menu_database"><span>__ブラウザ保存__Browser Save__</span></li>
      <hr>
      <li data-popup="imagesave" id="menu_imagesave"><span>__画像を保存__Save as image file__</span></li>
-     <hr>
-     <li data-popup="metadata" id="menu_metadata"><span>__プロパティの編集__Edit the board property__</span></li>
    </menu></li>
    <li><span>__編集__Edit__</span><menu label="__編集__Edit__">
      <li><span>__盤面__Board__</span> -&gt;<menu label="__盤面__Board__">
@@ -654,20 +652,6 @@
       <br>
       <br>
       <button type="button" class="btn" data-button-exec="close">__閉じる__Close__</button>
-    </form>
-  </div>
-
-  <div class="popup" id="popup_metadata">
-    <div class="titlebar">__パズルのプロパティ__This puzzle's Property__</div>
-    <form name="metadata">
-      <label>__種類:__Variety:__</label> <span id="metadata_variety"></span><br>
-      <label>__作者:__Author:__</label> <input name="author" type="text"></input><br>
-      <label>__出典:__Source:__</label> <input name="source" type="text"></input><br>
-      <label>__難易度:__Difficulty:__</label> <input name="hard" type="text"></input><br>
-      <label>__コメント:__Comment:__</label> <textarea name="comment" cols=28 rows=3 wrap="hard"></textarea><br>
-      <br>
-      <button type="button" class="btn btn-ok" data-button-exec="save">OK</button>
-      <button type="button" class="btn" data-button-exec="close">__キャンセル__Cancel__</button>
     </form>
   </div>
 
