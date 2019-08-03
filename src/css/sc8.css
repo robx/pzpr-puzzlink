@@ -207,28 +207,9 @@
 		padding : 0pt;
 	}
 
-	div#popup_database label {
-		display: inline-block;
-		vertical-align : top;
-		min-width: 72px;
-	}
-	div#popup_database form div {
-		float : left;
-		margin-bottom: 6pt;
-	}
-	div#popup_database form textarea {
-		padding: 2pt;
-		font-size: 0.9em;
-	}
-	div#popup_database form div:not(:last-child) {
-		margin-right : 12pt;
-	}
 	div#credit3_1 {
 		margin  : 4pt 0pt 2pt 4pt;
 		line-height : 1.1;
-	}
-	div#poptest {
-		z-index : 1;
 	}
 
 	/* cw=32, margin=2, width&height=cw+(margin*2)=36 */

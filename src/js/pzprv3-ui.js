@@ -14,7 +14,6 @@ exports.files = [
 	"ui/ToolArea",
 	"ui/Notify",
 	"ui/KeyPopup",
-	"ui/DataBase",
 	"ui/Timer",
 	"ui/Debug",
 	"common/outro"
