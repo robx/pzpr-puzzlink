@@ -46,7 +46,7 @@ ui.timer =
 		this.current = pzpr.util.currentTime();
 
 		if(ui.puzzle.playeronly){ this.updatetime();}
-		if(ui.menuconfig.get('autocheck_once') && !ui.debug.alltimer){ this.ACcheck();}
+		if(ui.menuconfig.get('autocheck_once')){ this.ACcheck();}
 	},
 
 	//---------------------------------------------------------------------------

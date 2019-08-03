@@ -29,8 +29,6 @@ window.ui = {
 	keypopup  : null,
 	timer     : null,
 	
-	debugmode : false,
-	
 	enableGetText   : false,	// FileReader APIの旧仕様でファイルが読めるか
 	enableReadText  : false,	// HTML5 FileReader APIでファイルが読めるか
 	reader : null,				// FileReaderオブジェクト

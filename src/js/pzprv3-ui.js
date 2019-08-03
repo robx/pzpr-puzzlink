@@ -15,6 +15,5 @@ exports.files = [
 	"ui/Notify",
 	"ui/KeyPopup",
 	"ui/Timer",
-	"ui/Debug",
 	"common/outro"
 ].map(function(mod){ return "src/js/"+mod+".js";});

@@ -14,7 +14,7 @@ var onload_option = {};
 // ★boot() window.onload直後の処理
 //---------------------------------------------------------------------------
 pzpr.on('load', function boot(){
-	if(importData() && includeDebugFile()){ startPuzzle();}
+	if(importData()){ startPuzzle();}
 	else{ setTimeout(boot,0);}
 });
 
@@ -39,31 +39,8 @@ function failOpen(){
 	//throw new Error("No Include Puzzle Data Exception");
 }
 
-function includeDebugFile(){
-	var pid = onload_pzl.pid, result = true;
-	
-	/* 必要な場合、テスト用ファイルのinclude         */
-	/* importURL()後でないと必要かどうか判定できない */
-	if(ui.debugmode){
-		if(!ui.debug){
-			result = false;
-		}
-		else if(!ui.debug.urls){
-			ui.debug.includeDebugScript("for_test.js");
-			result = false;
-		}
-		else if(!ui.debug.urls[pid]){
-			ui.debug.includeDebugScript("test_"+pid+".js");
-			result = false;
-		}
-	}
-	
-	return result;
-}
-
 function startPuzzle(){
-	var pzl = onload_pzl, pid = pzl.pid;
-	if(ui.debugmode){ onload_option.mode = 'play';}
+	var pzl = onload_pzl;
 	
 	/* IE SVGのtextLengthがうまく指定できていないので回避策を追加 */
 	if((function(ua){ return ua.match(/MSIE/) || (ua.match(/AppleWebKit/) && ua.match(/Edge/));})(navigator.userAgent)){
@@ -79,10 +56,8 @@ function startPuzzle(){
 	ui.event.onload_func();
 	
 	// 単体初期化処理のルーチンへ
-	var callback = null;
-	if(ui.debugmode){ puzzle.once('ready', function(puzzle){ ui.menuconfig.set('autocheck', true);});}
 	puzzle.once('fail-open', failOpen);
-	puzzle.open((!ui.debugmode || !!pzl.qdata) ? pzl : pid+"/"+ui.debug.urls[pid], callback);
+	puzzle.open(pzl);
 	
 	return true;
 }
@@ -110,13 +85,10 @@ function importURL(){
 	if(search==="test"){ search = 'country_test';}
 	
 	var startmode = '';
-	if     (search.match(/_test/)){ startmode = 'EDITOR'; ui.debugmode = true;}
-	else if(search.match(/^m\+/)) { startmode = 'EDITOR';}
-	else if(search.match(/_edit/)){ startmode = 'EDITOR';}
+	if(search.match(/_edit/)){ startmode = 'EDITOR';}
 	else if(search.match(/_play/)){ startmode = 'PLAYER';}
 
-	search=search.replace(/^m\+/,'');
-	search=search.replace(/(_test|_edit|_play)/,'');
+	search=search.replace(/(_edit|_play)/,'');
 
 	var pzl = pzpr.parser.parseURL(search);
 

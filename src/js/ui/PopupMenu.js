@@ -846,10 +846,5 @@ ui.popupmgr.addpopup('credit',
 		ui.popupmgr.popups.template.init.call(this);
 		
 		getEL('pzprversion').innerHTML = pzpr.version;
-		getEL("menualltest").style.display = (!ui.debugmode ? "none" : "");
-	},
-	debugalltest : function(){
-		ui.debug.all_test();
-		this.close();
 	}
 });

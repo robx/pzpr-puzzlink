@@ -295,10 +295,6 @@ ui.menuarea = {
 			this.stopHovering();
 		}
 	},
-	dispdebug : function(){
-		ui.popupmgr.open("debug", 0, 0);
-		this.stopHovering();
-	},
 
 	//------------------------------------------------------------------------------
 	// menuarea.duplicate_board() 盤面の複製を行う => 受取はBoot.jsのimportFileData()
