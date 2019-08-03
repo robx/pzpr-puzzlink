@@ -15,7 +15,6 @@ ui.misc = {
 		var pinfo = pzpr.variety(pid);
 		var title = ui.selectStr(pinfo.ja, pinfo.en);
 		title += (ui.puzzle.playeronly ? " player" : ui.selectStr(" エディタ"," editor"));
-		title += ui.selectStr(" - ぱずぷれv3"," - PUZ-PRE v3");
 
 		_doc.title = title;
 		var titleEL = _doc.getElementById('title2');
