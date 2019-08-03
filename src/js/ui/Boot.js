@@ -1,13 +1,12 @@
 // Boot.js v3.4.0
 /* jshint latedef:false */
-/* global ui:false, ActiveXObject:false */
+/* global ui:false */
 
 (function(){
 /********************************/
 /* 初期化時のみ使用するルーチン */
 /********************************/
 
-var require_accesslog = true;
 var onload_pzl = null;
 var onload_option = {};
 
@@ -81,8 +80,7 @@ function startPuzzle(){
 	
 	// 単体初期化処理のルーチンへ
 	var callback = null;
-	if(!ui.debugmode){ callback = accesslog;}
-	else{ puzzle.once('ready', function(puzzle){ ui.menuconfig.set('autocheck', true);});}
+	if(ui.debugmode){ puzzle.once('ready', function(puzzle){ ui.menuconfig.set('autocheck', true);});}
 	puzzle.once('fail-open', failOpen);
 	puzzle.open((!ui.debugmode || !!pzl.qdata) ? pzl : pid+"/"+ui.debug.urls[pid], callback);
 	
@@ -95,7 +93,6 @@ function startPuzzle(){
 function importURL(){
 	/* index.htmlからURLが入力されたかチェック */
 	var search = getStorageData('pzprv3_urldata', 'urldata');
-	if(!!search){ require_accesslog = false;}  /* index.htmlからのURL読み込み時はアクセスログをとらない */
 	
 	/* index.htmlからURLが入力されていない場合は現在のURLの?以降をとってくる */
 	search = search || location.search;
@@ -117,7 +114,6 @@ function importURL(){
 	else if(search.match(/^m\+/)) { startmode = 'EDITOR';}
 	else if(search.match(/_edit/)){ startmode = 'EDITOR';}
 	else if(search.match(/_play/)){ startmode = 'PLAYER';}
-	if(!require_accesslog){ startmode = 'EDITOR';}  /* index.htmlからの読み込み時はEDITORにする */
 
 	search=search.replace(/^m\+/,'');
 	search=search.replace(/(_test|_edit|_play)/,'');
@@ -141,8 +137,6 @@ function importFileData(){
 	var pzl = pzpr.parser.parseFile(fstr, '');
 	if(!pzl){ return null;}
 
-	require_accesslog = false;
-	
 	return pzl;
 }
 
@@ -159,46 +153,6 @@ function getStorageData(key, key2){
 
 	str = sessionStorage[key2];
 	return (typeof str==="string" ? str : null);
-}
-
-//---------------------------------------------------------------------------
-// ★accesslog() playerのアクセスログをとる
-//---------------------------------------------------------------------------
-function accesslog(puzzle){
-	if(!puzzle.playeronly || !onload_pzl.pid || !require_accesslog){ return;}
-
-	if(document.domain!=='indi.s58.xrea.com' &&
-	   document.domain!=='pzprv3.sakura.ne.jp' &&
-	   !document.domain.match(/(dev\.)?pzv\.jp/)){ return;}
-
-	var refer = document.referrer;
-	if(refer.match(/http\:\/\/[\w\.]*pzv\.jp/)){ return;}
-
-	refer = refer.replace(/\?/g,"%3f").replace(/\&/g,"%26")
-				 .replace(/\=/g,"%3d").replace(/\//g,"%2f");
-
-	// 送信
-	var xmlhttp = false;
-	if(typeof ActiveXObject !== "undefined"){
-		try { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
-		catch (e) { xmlhttp = false;}
-	}
-	if(!xmlhttp && typeof XMLHttpRequest !== "undefined") {
-		xmlhttp = new XMLHttpRequest();
-	}
-	if(xmlhttp){
-		var data = [
-			("scr="     + "pzprv3"),
-			("pid="     + onload_pzl.pid),
-			("referer=" + refer),
-			("pzldata=" + onload_pzl.qdata)
-		].join('&');
-
-		xmlhttp.open("POST", "./record.cgi");
-		xmlhttp.onreadystatechange = function(){};
-		xmlhttp.setRequestHeader("Content-Type" , "application/x-www-form-urlencoded");
-		xmlhttp.send(data);
-	}
 }
 
 })();
