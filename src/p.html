@@ -31,12 +31,6 @@
      <li data-popup="metadata" id="menu_metadata"><span>__プロパティの編集__Edit the board property__</span></li>
    </menu></li>
    <li><span>__編集__Edit__</span><menu label="__編集__Edit__">
-     <li><span>__履歴__History__</span> -&gt;<menu label="__履歴__History__">
-       <li id="menu_oldest" data-menu-exec="undoall"><span>__最初にジャンプ__Jump to oldest__</span></li>
-       <li id="menu_undo" data-press-exec="undo,undostop"><span>__元に戻す/Undo__Undo__</span></li>
-       <li id="menu_redo" data-press-exec="redo,redostop"><span>__やり直し/Redo__Redo__</span></li>
-       <li id="menu_latest" data-menu-exec="redoall"><span>__最後にジャンプ__Jump to latest__</span></li>
-     </menu></li>
      <li><span>__盤面__Board__</span> -&gt;<menu label="__盤面__Board__">
        <li data-menu-exec="anscheck"><span>__チェック__Check the Answer__</span></li>
        <li data-menu-exec="ansclear"><span>__解答消去__Erase answer__</span></li>
@@ -48,15 +42,6 @@
      </menu></li>
      <li data-disp-pid="slalom"><span>__旗門上の数字__Number on gates__</span> -&gt;<menu label="__旗門上の数字__Number on gates__">
        <li data-press-exec="showgatenum,hidegatenum"><span>__一時的に表示する__Show temporarily__</span></li>
-     </menu></li>
-     <li><span>__仮置きモード__Trial mode__</span> -&gt;<menu label="__仮置き__Trial__">
-       <li data-menu-exec="enterTrial"         id="menu_trialenter"><span>__仮置きモードに入る__Enter trial mode__</span></li>
-       <hr>
-       <li data-menu-exec="acceptTrial"        id="menu_trialaccept"><span>__仮置き確定__Accept trial__</span></li>
-       <li data-menu-exec="rejectTrial"        id="menu_trialreject"><span>__仮置き破棄__Reject trial__</span></li>
-       <li data-menu-exec="rejectCurrentTrial" id="menu_trialreject2"><span>__仮置き破棄__Reject currect trial__</span></li>
-       <li data-menu-exec="rejectTrial"        id="menu_trialrejectall"><span>__全仮置き破棄__Reject all trial__</span></li>
-       <li data-menu-exec="enterFurtherTrial"  id="menu_trialenter2"><span>__多重仮置き__Enter further trial__</span></li>
      </menu></li>
      <hr id="menu_sep_edit1">
      <li data-popup="adjust" id="menu_adjust"><span>__盤面の調整__Adjust the Board__</span></li>

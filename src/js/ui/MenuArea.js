@@ -186,24 +186,7 @@ ui.menuarea = {
 		}
 	},
 	setdisplay : function(idname){
-		if(idname==="operation"){
-			var opemgr = ui.puzzle.opemgr;
-			getEL('menu_oldest').className = (opemgr.enableUndo ? "" : "disabled");
-			getEL('menu_undo').className   = (opemgr.enableUndo ? "" : "disabled");
-			getEL('menu_redo').className   = (opemgr.enableRedo ? "" : "disabled");
-			getEL('menu_latest').className = (opemgr.enableRedo ? "" : "disabled");
-		}
-		else if(idname==='trialmode'){
-			var trialstage = ui.puzzle.board.trialstage;
-			getEL('menu_trialenter').className         = ((trialstage===0) ? '' : 'disabled');
-			getEL('menu_trialenter').nextSibling.nextSibling.style.display = ((trialstage>0) ? '' : 'none'); // hr tag
-			getEL('menu_trialaccept').style.display    = ((trialstage>0) ? '' : 'none');
-			getEL('menu_trialreject').style.display    = ((trialstage===1)? '' : 'none');
-			getEL('menu_trialreject2').style.display   = ((trialstage>1) ? '' : 'none');
-			getEL('menu_trialrejectall').style.display = ((trialstage>1) ? '' : 'none');
-			getEL('menu_trialenter2').style.display    = ((trialstage>0) ? '' : 'none');
-		}
-		else if(idname==="toolarea"){
+		if(idname==="toolarea"){
 			var str;
 			if(!ui.menuconfig.get("toolarea")){ str = ui.selectStr("ツールエリアを表示","Show tool area");}
 			else                              { str = ui.selectStr("ツールエリアを隠す","Hide tool area");}
