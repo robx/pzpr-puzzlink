@@ -83,7 +83,6 @@ function startPuzzle(){
 	var callback = null;
 	if(!ui.debugmode){ callback = accesslog;}
 	else{ puzzle.once('ready', function(puzzle){ ui.menuconfig.set('autocheck', true);});}
-	if(!ui.debugmode && require_accesslog && onload_option.type!=='player'){ puzzle.once('ready', countpid);}
 	puzzle.once('fail-open', failOpen);
 	puzzle.open((!ui.debugmode || !!pzl.qdata) ? pzl : pid+"/"+ui.debug.urls[pid], callback);
 	
@@ -160,26 +159,6 @@ function getStorageData(key, key2){
 
 	str = sessionStorage[key2];
 	return (typeof str==="string" ? str : null);
-}
-
-//---------------------------------------------------------------------------
-// ★countpid() エディタとして開いた回数をログする
-//---------------------------------------------------------------------------
-function countpid(puzzle){
-	var counts = JSON.parse(localStorage['pzprv3_index:ranking']||'{}');
-	
-	// パズルの開いた数を記録
-	var count = counts.count || {};
-	var cnt = count[puzzle.pid] || 0;
-	count[puzzle.pid] = cnt + 1;
-	
-	// 最新10パズルを記録
-	var recent = counts.recent || [];
-	if(recent.indexOf(puzzle.pid)>=0){ recent.splice(recent.indexOf(puzzle.pid),1);}
-	recent.unshift(puzzle.pid);
-	if(recent.length>10){ recent.pop();}
-	
-	localStorage['pzprv3_index:ranking'] = JSON.stringify({count:count,recent:recent});
 }
 
 //---------------------------------------------------------------------------

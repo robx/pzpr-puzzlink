@@ -57,7 +57,6 @@ v3index.extend({
 			}
 		});
 		if(!!getEL('puztypes')){ getEL('puztypes').style.display = "block";}
-		self.setRecentPuzzle();
 
 		self.disp_tab();
 
@@ -113,30 +112,6 @@ v3index.extend({
 			});
 			el.parentNode.style.display = (count>0 ? '' : 'none');
 		});
-	},
-
-	/* Generate the contents of recent accessed puzzles tab */
-	setRecentPuzzle : function(){
-		var listparent;
-		function addPuzzle(pid){
-			var pinfo = pzpr.variety(pid);
-			if(!pinfo.valid){ return;}
-			var el = _doc.createElement('li');
-			el.innerHTML = '<a href="p?'+pid+'"></a>';
-			listparent.appendChild(el);
-			self.captions.push({anode:el.firstChild, str_jp:pinfo.ja, str_en:pinfo.en});
-		}
-
-		listparent = getEL('recentpuzzle');
-		if(!listparent){ return;}
-		listparent.innerHTML = '';
-		(JSON.parse(localStorage['pzprv3_index:ranking']||'{}').recent || []).forEach(addPuzzle);
-
-		listparent = getEL('frequentpuzzle');
-		listparent.innerHTML = '';
-		var count = JSON.parse(localStorage['pzprv3_index:ranking']||'{}').count || {}, counts = [];
-		for(var i in count){ counts.push({pid:i, count:count[i]});}
-		counts.sort(function(a,b){ return b.count-a.count;}).slice(0,10).forEach(function(item){ addPuzzle(item.pid);});
 	},
 
 	/* Language display functions */
