@@ -79,7 +79,7 @@ ui.timer =
 		var puzzle = ui.puzzle;
 		if(this.current>this.nextACtime && puzzle.playmode && !puzzle.checker.inCheck && puzzle.board.trialstage===0){
 			var check = puzzle.check(false);
-			if(check.complete){
+			if(!check.undecided&&check.complete){
 				ui.timer.stop();
 				puzzle.mouse.mousereset();
 				ui.menuconfig.set('autocheck_once',false);
